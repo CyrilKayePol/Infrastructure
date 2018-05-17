@@ -121,7 +121,7 @@
                 %a{:href => "#"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Buildings
-				%a{:href => "/add_historical_data"}
+                %a{:href => "/add_historical_data"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Historical Data
                 %a{:href => "/historical_data"}
@@ -135,7 +135,7 @@
         / Bread crumb
         .row.page-titles
           .col-md-5.align-self-center
-            %h3.text-primary Building Options
+            %h3.text-primary Historical Data
           .col-md-7.align-self-center
             %ol.breadcrumb
               %li.breadcrumb-item
@@ -153,13 +153,13 @@
                   %form
                     .form-group
                       %label BUILDING NAME
-                      %input.form-control{:value => "", :name => "building[name]", :placeholder => "Name of Building", :type => "text"}/
+                      %input.form-control{:value => "", :name => "data[name]", :placeholder => "Name of Building", :type => "text"}/
                     .form-group
-                      %label DATE BUILT
-                      %input.form-control{:value => "",:name => "building[date_built]", :placeholder => "Date Built", :type => "date"}/
+                      %label EVENT DATE
+                      %input.form-control{:value => "",:name => "data[date]", :placeholder => "Date Built", :type => "date"}/
                     .form-group
-                      %label BUILDING INFORMATION
-                      %input.form-control{:value => "",:name => "building[condition]", :placeholder => "INFORMATION", :rows => "10", :type => "text"}
+                      %label EVENT
+                      %input.form-control{:value => "",:name => "data[event]", :placeholder => "Information", :rows => "10", :type => "text"}
                     / %button.btn.btn-default{:onclick => "myFunction()", :type => "submit"} Submit
                     %button.btn.btn-default{:type => "submit"} Submit
                   .table-responsive.m-t-40
@@ -167,8 +167,8 @@
                       %thead
                         %tr
                           %th NAME OF BUILDING
-                          %th DATE BUILT
-                          %th CONDITION
+                          %th EVENT DATE
+                          %th EVENT
                       %tbody
                         / %tr
                         /   %td CS LABORATORY
@@ -182,11 +182,11 @@
                         /   %td UP BOTANICAL
                         /   %td March 21, 2018
                         /   %td NEEDS CLEANING
-                        - @buildings.each do |building|
+                        - @data.each do |building|
                           %tr
                             %td= building.name
-                            %td= building.date_built
-                            %td= building.condition
+                            %td= building.date
+                            %td= building.event
                     %button{:onclick => "myFunction()"} Try it
                 / Column
               / End PAge Content

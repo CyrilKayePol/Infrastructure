@@ -11,9 +11,10 @@ Rails.application.routes.draw do
 	get '/view_buildings' => 'view_buildings#view_buildings'
 	post '/view_buildings' => 'view_buildings#view_buildings'
 	get '/logout' => 'login#logout'
-	get '/edit/account_settings' => 'account#edit_account_settings'
-	get '/edit/profile_information' => 'account#edit_profile_information'
+	get '/edit_account_settings' => 'account#edit_account_settings'
+	get '/edit_profile_information' => 'account#edit_profile_information'
 	get '/update/account_settings' => 'account#update_account_settings'
 	get '/update/profile_information' => 'account#update_profile_information'
 	get '/historical_data' => 'historical_data#historical_data'
+		get '/add_historical_data' => 'historical_data#add_historical_data'
 end
