@@ -1,0 +1,33 @@
+  #boo {
+    background-color: rgb(25,27,53);
+    color: rgb(255, 255, 255);
+  }
+
+  .inside {
+    font-size: 18px;
+    border: 3px solid white;
+    border-top: 0px;
+    border-bottom: 0px;
+    padding: 15px 0px;
+  }
+
+  .top {
+    border: 3px solid white;
+    border-bottom: 0px;
+    font-size: 22px;
+    padding: 15px 0px;
+  }
+
+  .bottom {
+    border: 3px solid white;
+    border-top: 0px;
+    font-size: 18px;
+    padding: 15px 0px;
+  }
+
+  #div {
+    border: 3px solid rgb(0, 55, 105);
+    text-align: center;
+    width: 800px;
+    padding: 10px 6px 10px 6px;
+  }

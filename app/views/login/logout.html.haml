@@ -1,0 +1,18 @@
+!!! 5
+%html
+	%head
+		%title Profile Information
+		= stylesheet_link_tag 'bootstrap'
+		= javascript_include_tag 'login'
+		= csrf_meta_tags
+		%link{:href => "/css/logout.css", :rel => "stylesheet"}/
+		%script{:src => "/javascripts/logout.js", :type => "text/javascript"}
+
+	%body
+		%a.trigger_popup_fricc Click
+		.hover_bkgr_fricc
+			%span.helper
+			%div
+				.popupCloseButton X
+				%p Sureness ma log out ka?
+		

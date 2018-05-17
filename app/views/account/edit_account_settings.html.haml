@@ -1,0 +1,38 @@
+!!! 5
+%html
+	%head
+		%title Account Settings
+		= stylesheet_link_tag 'login'
+		= stylesheet_link_tag 'bootstrap'
+		= javascript_include_tag 'login'
+		= csrf_meta_tags
+		%link{:href => "/css/account.css", :rel => "stylesheet"}/
+		%link{:href => "/css/logout.css", :rel => "stylesheet"}/
+		%script{:src => "/javascripts/logout.js", :type => "text/javascript"}
+		
+	%body{:class => 'container'}
+		.sidenav
+			%a{:href => '/dashboard'} DASHBOARD
+			%a{:href => '/view_buildings'} VIEW BUILDINGS
+			%a{:href => '#'} ADD BUILDINGS
+			%a{:href => '/historical_data'} VIEW HISTORICAL DATA
+			%a.pressed_sidelink{:href => '/profile_information'} ACCOUNT
+			%a{:href => '/logout'} LOG OUT
+		
+		.top_buttons
+			%a{:href => '/profile_information'} PROFILE
+			|
+			%a.pressed_link{:href => '/account_settings'} ACCOUNT
+		.container#divcen
+			%form.account_settings{:name => "account_settings", :action => "/update/account_settings", :method => "patch"}
+				%label.labels{:name => 'emailadd'} E-MAIL ADDRESS
+				%br/
+				%input.input-xxlarge#emailAdd{:name => 'emailAdd', :readonly => "readonly", :placeholder => "example@up.edu.ph", :value => @email, :type => "text"}/
+				%label.labels{:name => 'passwd'} PASSWORD
+				%br/
+				%input.input-xxlarge#passwd{:name => 'passwd',:value => @passwd, :type => "password"}/
+				%br/
+				%br/
+				%button.btn.btn-success{:type => "submit"} Save
+  
+

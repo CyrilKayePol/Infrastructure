@@ -1,0 +1,75 @@
+
+body{
+	background-color: rgb(25,27,53);
+	color: white;
+}
+#divcen{
+    position: absolute;
+    bottom: 90px;
+	left: 200px;
+    border: 3px solid #b5b4b4;
+	height: 70%;
+}
+
+.top_buttons{
+	position: absolute;
+	top: 60px;
+	display: inline;
+}
+a{
+	padding: 20px;
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.pressed_link{
+	font-size: 30px;
+}
+.gender_label{
+	padding-right: 100px;
+}
+.profile{
+	padding: 30px;
+}
+.account_settings{
+	padding: 30px;
+}
+.labels{
+	text-align: left;
+	padding-right: 15px;
+	color: white;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	
+}
+
+.sidenav{
+	height: 100%;
+	width: 160px;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #ffffff;
+	overflow-x: hidden;
+	padding-top: 20px;
+	font-weight: bold;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: #585858;
+    display: block;
+}
+
+.pressed_sidelink{
+	font-size: 20px;
+}
+
+.sidenav a:hover {
+    color: rgb(25,23,75);
+}
+
+

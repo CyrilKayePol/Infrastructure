@@ -1,0 +1,604 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / Tell the browser to be responsive to screen width
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / Favicon icon
+    %link{:href => "images/favicon.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %title Ela - Bootstrap Admin Dashboard Template
+    %link{:href => "css/lib/chartist/chartist.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/lib/owl.carousel.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/lib/owl.theme.default.min.css", :rel => "stylesheet"}/
+    / Bootstrap Core CSS
+    %link{:href => "css/lib/bootstrap/bootstrap.min.css", :rel => "stylesheet"}/
+    / Custom CSS
+    %link{:href => "css/helper.css", :rel => "stylesheet"}/
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file:**
+    /[if lt IE 9]
+      <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  %body.fix-header.fix-sidebar
+    / Preloader - style you can find in spinners.css
+    .preloader
+      %svg.circular{:viewbox => "25 25 50 50"}
+        %circle.path{:cx => "50", :cy => "50", :fill => "none", :r => "20", "stroke-miterlimit" => "10", "stroke-width" => "2"}
+    / Main wrapper
+    #main-wrapper
+      / header header
+      .header
+        %nav.navbar.top-navbar.navbar-expand-md.navbar-light
+          / Logo
+          .navbar-header
+            %a.navbar-brand{:href => "index.html"}
+              / Logo icon
+              %b
+                %img.dark-logo{:alt => "homepage", :src => "images/logo.png"}/
+              / End Logo icon
+              / Logo text
+              %span
+                %img.dark-logo{:alt => "homepage", :src => "images/logo-text.png"}/
+          / End Logo
+          .navbar-collapse
+            / toggle and nav items
+            %ul.navbar-nav.mr-auto.mt-md-0
+              / This is
+              %li.nav-item
+                %a.nav-link.nav-toggler.hidden-md-up.text-muted{:href => "javascript:void(0)"}
+                  %i.mdi.mdi-menu
+              %li.nav-item.m-l-10
+                %a.nav-link.sidebartoggler.hidden-sm-down.text-muted{:href => "javascript:void(0)"}
+                  %i.ti-menu
+              / Messages
+              %li.nav-item.dropdown.mega-dropdown
+                %a.nav-link.dropdown-toggle.text-muted{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+                  %i.fa.fa-th-large
+                .dropdown-menu.animated.zoomIn
+                  %ul.mega-dropdown-menu.row
+                    %li.col-lg-3.m-b-30
+                      %h4.m-b-20 CONTACT US
+                      / Contact
+                      %form
+                        .form-group
+                          %input#exampleInputname1.form-control{:placeholder => "Enter Name", :type => "text"}/
+                        .form-group
+                          %input.form-control{:placeholder => "Enter email", :type => "email"}/
+                        .form-group
+                          %textarea#exampleTextarea.form-control{:placeholder => "Message", :rows => "3"}
+                        %button.btn.btn-info{:type => "submit"} Submit
+                    %li.col-lg-3.col-xlg-3.m-b-30
+                      %h4.m-b-20 List style
+                      / List style
+                      %ul.list-style-none
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                    %li.col-lg-3.col-xlg-3.m-b-30
+                      %h4.m-b-20 List style
+                      / List style
+                      %ul.list-style-none
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                    %li.col-lg-3.col-xlg-3.m-b-30
+                      %h4.m-b-20 List style
+                      / List style
+                      %ul.list-style-none
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+                        %li
+                          %a{:href => "javascript:void(0)"}
+                            %i.fa.fa-check.text-success
+                            This Is Another Link
+              / End Messages
+            / User profile and search
+            %ul.navbar-nav.my-lg-0
+              / Search
+              %li.nav-item.hidden-sm-down.search-box
+                %a.nav-link.hidden-sm-down.text-muted{:href => "javascript:void(0)"}
+                  %i.ti-search
+                %form.app-search
+                  %input.form-control{:placeholder => "Search here", :type => "text"}/
+                  %a.srh-btn
+                    %i.ti-close
+              / Comment
+              %li.nav-item.dropdown
+                %a.nav-link.dropdown-toggle.text-muted.text-muted{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+                  %i.fa.fa-bell
+                  .notify
+                    %span.heartbit
+                    %span.point
+                .dropdown-menu.dropdown-menu-right.mailbox.animated.zoomIn
+                  %ul
+                    %li
+                      .drop-title Notifications
+                    %li
+                      .message-center
+                        / Message
+                        %a{:href => "#"}
+                          .btn.btn-danger.btn-circle.m-r-10
+                            %i.fa.fa-link
+                          .mail-contnet
+                            %h5 This is title
+                            %span.mail-desc Just see the my new admin!
+                            %span.time 9:30 AM
+                        / Message
+                        %a{:href => "#"}
+                          .btn.btn-success.btn-circle.m-r-10
+                            %i.ti-calendar
+                          .mail-contnet
+                            %h5 This is another title
+                            %span.mail-desc Just a reminder that you have event
+                            %span.time 9:10 AM
+                        / Message
+                        %a{:href => "#"}
+                          .btn.btn-info.btn-circle.m-r-10
+                            %i.ti-settings
+                          .mail-contnet
+                            %h5 This is title
+                            %span.mail-desc You can customize this template as you want
+                            %span.time 9:08 AM
+                        / Message
+                        %a{:href => "#"}
+                          .btn.btn-primary.btn-circle.m-r-10
+                            %i.ti-user
+                          .mail-contnet
+                            %h5 This is another title
+                            %span.mail-desc Just see the my admin!
+                            %span.time 9:02 AM
+                    %li
+                      %a.nav-link.text-center{:href => "javascript:void(0);"}
+                        %strong Check all notifications
+                        %i.fa.fa-angle-right
+              / End Comment
+              / Messages
+              %li.nav-item.dropdown
+                %a#2.nav-link.dropdown-toggle.text-muted{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+                  %i.fa.fa-envelope
+                  .notify
+                    %span.heartbit
+                    %span.point
+                .dropdown-menu.dropdown-menu-right.mailbox.animated.zoomIn{"aria-labelledby" => "2"}
+                  %ul
+                    %li
+                      .drop-title You have 4 new messages
+                    %li
+                      .message-center
+                        / Message
+                        %a{:href => "#"}
+                          .user-img
+                            %img.img-circle{:alt => "user", :src => "images/users/5.jpg"}/
+                            %span.profile-status.online.pull-right
+                          .mail-contnet
+                            %h5 Michael Qin
+                            %span.mail-desc Just see the my admin!
+                            %span.time 9:30 AM
+                        / Message
+                        %a{:href => "#"}
+                          .user-img
+                            %img.img-circle{:alt => "user", :src => "images/users/2.jpg"}/
+                            %span.profile-status.busy.pull-right
+                          .mail-contnet
+                            %h5 John Doe
+                            %span.mail-desc I've sung a song! See you at
+                            %span.time 9:10 AM
+                        / Message
+                        %a{:href => "#"}
+                          .user-img
+                            %img.img-circle{:alt => "user", :src => "images/users/3.jpg"}/
+                            %span.profile-status.away.pull-right
+                          .mail-contnet
+                            %h5 Mr. John
+                            %span.mail-desc I am a singer!
+                            %span.time 9:08 AM
+                        / Message
+                        %a{:href => "#"}
+                          .user-img
+                            %img.img-circle{:alt => "user", :src => "images/users/4.jpg"}/
+                            %span.profile-status.offline.pull-right
+                          .mail-contnet
+                            %h5 Michael Qin
+                            %span.mail-desc Just see the my admin!
+                            %span.time 9:02 AM
+                    %li
+                      %a.nav-link.text-center{:href => "javascript:void(0);"}
+                        %strong See all e-Mails
+                        %i.fa.fa-angle-right
+              / End Messages
+              / Profile
+              %li.nav-item.dropdown
+                %a.nav-link.dropdown-toggle.text-muted{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+                  %img.profile-pic{:alt => "user", :src => "images/users/5.jpg"}/
+                .dropdown-menu.dropdown-menu-right.animated.zoomIn
+                  %ul.dropdown-user
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-user
+                        Profile
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-wallet
+                        Balance
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-email
+                        Inbox
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-settings
+                        Setting
+                    %li
+                      %a{:href => "/logout"}
+                        %i.fa.fa-power-off
+                        Logout
+      / End header header
+      / Left Sidebar
+      .left-sidebar
+        / Sidebar scroll
+        .scroll-sidebar
+          %nav.sidebar-nav
+            %ul#sidebarnav
+              %li.nav-devider
+              %li.nav-label Home
+              %li
+                %a{:href => "/dashboard"}
+                  %i.fa.fa-tachometer
+                  %span.hide-menu
+                    Dashboard
+              %li
+                %a{:href => "/view_buildings"}
+                  %i.fa.fa-table
+                  %span.hide-menu View Buildings
+                %a{:href => "#"}
+                  %i.fa.fa-wpforms
+                  %span.hide-menu Add Buildings
+                %a{:href => "/historical_data"}
+                  %i.fa.fa-book
+                  %span.hide-menu View Historical Data
+              %li
+                %a{"aria-expanded" => "false", :href => "/profile_information"}
+                  %i.fa.fa-user
+                  %span.hide-menu Profile
+			  
+              
+      / Page wrapper
+      .page-wrapper
+        / Bread crumb
+        .row.page-titles
+          .col-md-5.align-self-center
+            %h3.text-primary Dashboard
+          .col-md-7.align-self-center
+            %ol.breadcrumb
+              %li.breadcrumb-item
+                %a{:href => "javascript:void(0)"} Home
+              %li.breadcrumb-item.active Dashboard
+        / End Bread crumb
+        / Container fluid
+        .container-fluid
+          / Start Page Content
+          .row
+            .col-md-3
+              .card.bg-primary.p-20
+                .media.widget-ten
+                  .media-left.meida.media-middle
+                    %span
+                      %i.ti-bag.f-s-40
+                  .media-body.media-text-right
+                    %h2.color-white 278
+                    %p.m-b-0 TOTAL NUMBER OF BUILDINGS IN UPVTC
+            .col-md-3
+              .card.bg-pink.p-20
+                .media.widget-ten
+                  .media-left.meida.media-middle
+                    %span
+                      %i.ti-comment.f-s-40
+                  .media-body.media-text-right
+                    %h2.color-white 278
+                    %p.m-b-0 AVERAGE PERCENTAGE OF THE CONDITION
+            .col-md-3
+              .card.bg-success.p-20
+                .media.widget-ten
+                  .media-left.meida.media-middle
+                    %span
+                      %i.ti-vector.f-s-40
+                  .media-body.media-text-right
+                    %h2.color-white $27647
+                    %p.m-b-0 NEWS AND UPDATES
+            .col-md-3
+              .card.bg-danger.p-20
+                .media.widget-ten
+                  .media-left.meida.media-middle
+                    %span
+                      %i.ti-location-pin.f-s-40
+                  .media-body.media-text-right
+                    %h2.color-white 278
+                    %p.m-b-0 Total Visitor
+          .row
+            .col-lg-6
+              .card
+                .card-title
+                  %h4 Sales
+                .sales-chart
+                  .ct-bar-chart{:style => "height:350px"}
+              / /# card
+            / /# column
+            .col-lg-6
+              .card
+                .card-title
+                  %h4 Visitor in Device
+                .card-body
+                  .table-responsive
+                    %table.table.table-hover
+                      %thead
+                        %tr
+                          %th Device
+                          %th Visits
+                          %th Avg. time
+                      %tbody
+                        %tr
+                          %td Unknown
+                          %td 2,456
+                          %td 00:02:36
+                        %tr
+                          %td Apple iPad
+                          %td 1,006
+                          %td 00:03:41
+                        %tr
+                          %td Apple iPhone
+                          %td 68
+                          %td 00:04:10
+                        %tr
+                          %td HTC Desire
+                          %td 38
+                          %td 00:01:40
+                        %tr
+                          %td Samsung
+                          %td 20
+                          %td 00:04:54
+                        %tr
+                          %td Apple iPad
+                          %td 1,006
+                          %td 00:03:41
+          .row
+            .col-lg-6
+              .card.nestable-cart
+                .card-title
+                  %h4 World Map
+                .datamap
+                  #world-datamap
+            .col-lg-6
+              .card
+                .card-block
+                  %h4.card-title Visitor
+                  .ct-svg-chart{:style => "height:420px"}
+            / /# column
+          / /# row
+          .row
+            .col-lg-4
+              .card
+                .card-title
+                  %h4 Project
+                .card-body
+                  .current-progress
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Website
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-40{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar"}
+                                40%
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Android
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-60{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar"}
+                                60%
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Ios
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-70{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "70", :role => "progressbar"}
+                                70%
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Mobile
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-90{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar"}
+                                90%
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Android
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-60{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar"}
+                                60%
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Ios
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-70{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "70", :role => "progressbar"}
+                                70%
+                    .progress-content
+                      .row
+                        .col-lg-4
+                          .progress-text Mobile
+                        .col-lg-8
+                          .current-progressbar
+                            .progress
+                              .progress-bar.progress-bar-primary.w-90{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar"}
+                                90%
+            / /# column
+            .col-lg-4
+              .card
+                .card-title
+                  %h4 Messages
+                .card-body
+                  .recent-meaasge
+                    .media
+                      .media-left
+                        %a{:href => "#"}
+                          %img.media-object{:alt => "...", :src => "images/avatar/1.jpg"}/
+                      .media-body
+                        %h4.media-heading john doe
+                        .meaasge-date 15 minutes Ago
+                        %p.f-s-12 We are happy about your service
+                    .media
+                      .media-left
+                        %a{:href => "#"}
+                          %img.media-object{:alt => "...", :src => "images/avatar/2.jpg"}/
+                      .media-body
+                        %h4.media-heading Mr. John
+                        .meaasge-date 40 minutes ago
+                        %p.f-s-12 Quick service and good serve
+                    .media
+                      .media-left
+                        %a{:href => "#"}
+                          %img.media-object{:alt => "...", :src => "images/avatar/3.jpg"}/
+                      .media-body
+                        %h4.media-heading Mr. Michael
+                        .meaasge-date 1 minutes ago
+                        %p.f-s-12 We like your birthday cake
+                    .media.no-border
+                      .media-left
+                        %a{:href => "#"}
+                          %img.media-object{:alt => "...", :src => "images/avatar/2.jpg"}/
+                      .media-body
+                        %h4.media-heading Mr. John
+                        .meaasge-date 40 minutes ago
+                        %p.f-s-12 Quick service and good serve
+            .col-lg-4
+              .card
+                .card-title
+                  %h4 Todo
+                .todo-list
+                  .tdl-holder
+                    .tdl-content
+                      %ul
+                        %li.color-primary
+                          %label
+                            %input{:type => "checkbox"}/
+                            %i.bg-primary
+                            %span Post three to six times on Twitter.
+                            %a.ti-close{:href => "#"}
+                        %li.color-success
+                          %label
+                            %input{:checked => "checked", :type => "checkbox"}/
+                            %i.bg-success
+                            %span Post one to two times on Facebook.
+                            %a.ti-close{:href => "#"}
+                        %li.color-warning
+                          %label
+                            %input{:checked => "checked", :type => "checkbox"}/
+                            %i.bg-warning
+                            %span Follow back those who follow you
+                            %a.ti-close{:href => "#"}
+                        %li.color-danger
+                          %label
+                            %input{:checked => "checked", :type => "checkbox"}/
+                            %i.bg-danger
+                            %span Connect with one new person
+                            %a.ti-close{:href => "#"}
+                    %input.tdl-new.form-control{:placeholder => "Type here", :type => "text"}/
+          / End PAge Content
+        / End Container fluid
+        / footer
+        %footer.footer
+          © 2018 All rights reserved. Template designed by
+          %a{:href => "https://colorlib.com"} Colorlib
+        / End footer
+      / End Page wrapper
+    / End Wrapper
+    / All Jquery
+    %script{:src => "js/lib/jquery/jquery.min.js"}
+    / Bootstrap tether Core JavaScript
+    %script{:src => "js/lib/bootstrap/js/popper.min.js"}
+    %script{:src => "js/lib/bootstrap/js/bootstrap.min.js"}
+    / slimscrollbar scrollbar JavaScript
+    %script{:src => "js/jquery.slimscroll.js"}
+    / Menu sidebar
+    %script{:src => "js/sidebarmenu.js"}
+    / stickey kit
+    %script{:src => "js/lib/sticky-kit-master/dist/sticky-kit.min.js"}
+    %script{:src => "js/lib/datamap/d3.min.js"}
+    %script{:src => "js/lib/datamap/topojson.js"}
+    %script{:src => "js/lib/datamap/datamaps.world.min.js"}
+    %script{:src => "js/lib/datamap/datamap-init.js"}
+    %script{:src => "js/lib/weather/jquery.simpleWeather.min.js"}
+    %script{:src => "js/lib/weather/weather-init.js"}
+    %script{:src => "js/lib/owl-carousel/owl.carousel.min.js"}
+    %script{:src => "js/lib/owl-carousel/owl.carousel-init.js"}
+    %script{:src => "js/lib/chartist/chartist.min.js"}
+    %script{:src => "js/lib/chartist/chartist-plugin-tooltip.min.js"}
+    %script{:src => "js/lib/chartist/chartist-init.js"}
+    / Custom JavaScript
+    %script{:src => "js/custom.min.js"}

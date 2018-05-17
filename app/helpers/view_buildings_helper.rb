@@ -1,0 +1,2 @@
+module ViewBuildingsHelper
+end
