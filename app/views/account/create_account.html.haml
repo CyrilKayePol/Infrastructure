@@ -30,36 +30,71 @@
     #main-wrapper
       .unix-login
         .container-fluid
+          / Start Page Content
           .row.justify-content-center
             .col-lg-4
               .login-content.card
-                .login-form
-                  %h4 Register
-                  %form{:action => "redirect_account", :method => "post", :name => "create_account"}
-                    .form-group
-                      %label First Name
-                      %input.form-control{:name => "firstname", :placeholder => "First Name", :type => "text", :value => "#{@firstname}"}/
-                    .form-group
-                      %label Last Name
-                      %input.form-control{:name => "lastname", :placeholder => "Last Name", :type => "text", :value => "#{@lastname}"}/
-                    .form-group
-                      %label Email address
-                      %input.form-control{:name => "email", :placeholder => "UP Mail", :type => "text", :value => "#{@email}"}/
-                    .form-group
-                      %label Password
-                      %input.form-control{:name => "passwd", :placeholder => "*****", :type => "password", :value => "#{@passwd}"}/
-                    .form-group
-                      %label Mobile Number
-                      %input.form-control{:name => "mobilenum", :placeholder => "Mobile Number", :type => "text", :value => "#{@mobilenum}"}/
-                    .checkbox
-                      %label
-                        %input{:type => "checkbox"}/
-                        Agree the terms and policy
-                    %button.btn.btn-primary.btn-flat.m-b-30.m-t-30{:type => "submit"} Register
+                .form-validation
+                  %br/
+                  %form.form-valide{:action => "redirect_account", :method => "post", :name => "create_account"}
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "firstname"}
+                        FIRST NAME
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-name.form-control{:name => "firstname", :placeholder => "First Name", :type => "text", :value => "#{@firstname}"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "lastname"}
+                        LAST NAME
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-username.form-control{:name => "lastname", :placeholder => "Last Name", :type => "text", :value => "#{@lastname}"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "email"}
+                        EMAIL
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-email.form-control{:name => "email", :placeholder => "example@up.edu.ph", :type => "text", :value => "#{@email}"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "passwd"}
+                        PASSWORD
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-password.form-control{:name => "passwd",:placeholder => "*****", :type => "password", :value => "#{@passwd}"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "val-confirm-password"}
+                        CONFIRM PASSWORD
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-confirm-password.form-control{:name => "val-confirm-password", :placeholder => "*****", :type => "password"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "mobilenum"}
+                        PHONE NUMBER
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-digits.form-control{:name => "mobilenum", :placeholder => "Mobile Number", :type => "text", :value => "#{@mobilenum}"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label{:for => "lastname"}
+                        ADDRESS
+                        %span.text-danger *
+                      .col-lg-8
+                        %input#val-username.form-control{:name => "address", :placeholder => "Address", :type => "text", :value => "#{@address}"}/
+                    .form-group.row
+                      %label.col-lg-4.col-form-label
+                        %a{"data-target" => "#modal-terms", "data-toggle" => "modal", :href => "#"} Terms &amp; Conditions
+                        %span.text-danger *
+                      .col-lg-8
+                        %label.css-control.css-control-primary.css-checkbox{:for => "val-terms"}
+                          %input#val-terms.css-control-input{:name => "val-terms", :type => "checkbox", :value => "1"}/
+                          %span.css-control-indicator
+                          I agree to the terms
+                    .form-group.row
+                      .col-lg-9.ml-auto
+                        %button.btn.btn-primary.btn-flat.m-b-30.m-t-30{:type => "submit"} CREATE ACCOUNT
                     .register-link.m-t-15.text-center
                       %p
-                        Already have account?
-                        %a{:href => "log_user"} Sign in
+                      Already have account?
+                      %a{:href => "log_user"} Sign in
     / End Wrapper
     / All Jquery
     %script{:src => "js/lib/jquery/jquery.min.js"}
@@ -72,5 +107,11 @@
     %script{:src => "js/sidebarmenu.js"}
     / stickey kit
     %script{:src => "js/lib/sticky-kit-master/dist/sticky-kit.min.js"}
+    / Form validation
+    %script{:src => "js/lib/form-validation/jquery.validate.min.js"}
+    %script{:src => "js/lib/form-validation/jquery.validate-init.js"}
     / Custom JavaScript
     %script{:src => "js/custom.min.js"}
+
+
+ 

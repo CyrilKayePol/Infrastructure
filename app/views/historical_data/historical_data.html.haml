@@ -7,7 +7,7 @@
     / Tell the browser to be responsive to screen width
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %meta{:content => "", :name => "description"}/
-  %body
+  %body.fix-header.fix-sidebar
     %p
       zoomIn
       %meta{:content => "", :name => "author"}/
@@ -118,12 +118,15 @@
                 %a{:href => "/view_buildings"}
                   %i.fa.fa-table
                   %span.hide-menu View Buildings
-                %a{:href => "#"}
+              %li
+                %a{:href => "/add_building"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Buildings
+              %li
                 %a{:href => "/add_historical_data"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Historical Data
+              %li
                 %a{:href => "/historical_data"}
                   %i.fa.fa-book
                   %span.hide-menu View Historical Data
@@ -156,21 +159,27 @@
                     %thead
                       %tr
                         %th NAME OF BUILDING
-                        %th DATE BUILT
+                        %th EVENT DATE
                         %th EVENT
                     %tbody
-                      %tr
-                        %td CS LABORATORY
-                        %td April 28, 2018
-                        %td NOT OK
-                      %tr
-                        %td CS LECTURE ROOM
-                        %td Febuary 31, 2018
-                        %td VERY OK
-                      %tr
-                        %td UP BOTANICAL
-                        %td March 21, 2018
-                        %td NEEDS CLEANING
+                      / %tr
+                      /   %td CS LABORATORY
+                      /   %td April 28, 2018
+                      /   %td NOT OK
+                      / %tr
+                      /   %td CS LECTURE ROOM
+                      /   %td Febuary 31, 2018
+                      /   %td VERY OK
+                      / %tr
+                      /   %td UP BOTANICAL
+                      /   %td March 21, 2018
+                      /   %td NEEDS CLEANING
+                      - @historical_data.each do |building|
+                        %tr
+                          %td= building.name
+                          %td= building.date
+                          %td= building.event
+						  
               / Column
             / End PAge Content
           / End Container fluid

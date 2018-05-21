@@ -118,7 +118,7 @@
                 %a{:href => "/view_buildings"}
                   %i.fa.fa-table
                   %span.hide-menu View Buildings
-                %a{:href => "#"}
+                %a{:href => "/add_building"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Buildings
                 %a{:href => "/add_historical_data"}
@@ -169,6 +169,7 @@
                           %th NAME OF BUILDING
                           %th EVENT DATE
                           %th EVENT
+                          %th OPTIONS
                       %tbody
                         / %tr
                         /   %td CS LABORATORY
@@ -187,6 +188,9 @@
                             %td= building.name
                             %td= building.date
                             %td= building.event
+                            %td
+                              %a{:href => '#'} Delete
+                              %a{:href => '#'} Edit
                     %button{:onclick => "myFunction()"} Try it
                 / Column
               / End PAge Content

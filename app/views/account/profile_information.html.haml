@@ -156,7 +156,7 @@
                     %header
                       .avatar
                         %img{:alt => "Allison Walkerss", :src => "https://randomuser.me/api/portraits/women/21.jpg"}/
-                    %h3 Allison Walker
+                    %h3 Hello, #@first_name #@last_name!
                     .desc
                       Welcome to Infrastructure Management and Inventory!
             / Column
@@ -187,6 +187,10 @@
                           %label.col-md-12 Phone No
                           .col-md-12
                             %input.form-control.form-control-line{:name => "mobile_number", :readonly => "readonly", :type => "text", :value => "#{@mobile_number}"}/
+                        .form-group
+                          %label.col-md-12 Address
+                          .col-md-12
+                            %input.form-control.form-control-line{:name => "address", :readonly => "readonly", :type => "text", :value => "#{@address}"}/
                         .form-group
                           .col-sm-12
                             %button.btn.btn-success Update Profile

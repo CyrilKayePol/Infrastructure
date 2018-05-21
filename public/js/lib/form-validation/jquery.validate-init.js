@@ -15,15 +15,23 @@ var form_validation = function() {
                     jQuery(e).closest(".form-group").removeClass("is-invalid"), jQuery(e).remove()
                 },
                 rules: {
-                    "val-username": {
+                    "firstname": {
                         required: !0,
-                        minlength: 3
+                        minlength: 2
                     },
-                    "val-email": {
+                    "lastname": {
+                        required: !0,
+                        minlength: 2
+                    },
+                    "religion": {
+                        required: !0,
+                        minlength: 2
+                    },					
+                    "email": {
                         required: !0,
                         email: !0
                     },
-                    "val-password": {
+                    "passwd": {
                         required: !0,
                         minlength: 5
                     },
@@ -57,7 +65,7 @@ var form_validation = function() {
                         required: !0,
                         phoneUS: !0
                     },
-                    "val-digits": {
+                    "mobilenum": {
                         required: !0,
                         digits: !0
                     },
@@ -74,12 +82,20 @@ var form_validation = function() {
                     }
                 },
                 messages: {
-                    "val-username": {
-                        required: "Please enter a username",
-                        minlength: "Your username must consist of at least 3 characters"
+                    "firstname": {
+                        required: "Please enter your first name.",
+                        minlength: "Your first name must consist of at least 2 characters"
                     },
-                    "val-email": "Please enter a valid email address",
-                    "val-password": {
+                    "lastname": {
+                        required: "Please enter your last name.",
+                        minlength: "Your last name must consist of at least 2 characters"
+                    },
+                    "address": {
+                        required: "Please enter your address.",
+                        minlength: "Your address must consist of at least 2 characters"
+                    },					
+                    "email": "Please enter a valid email address",
+                    "passwd": {
                         required: "Please provide a password",
                         minlength: "Your password must be at least 5 characters long"
                     },
@@ -95,7 +111,7 @@ var form_validation = function() {
                     "val-currency": "Please enter a price!",
                     "val-website": "Please enter your website!",
                     "val-phoneus": "Please enter a US phone!",
-                    "val-digits": "Please enter only digits!",
+                    "mobilenum": "Please enter only digits!",
                     "val-number": "Please enter a number!",
                     "val-range": "Please enter a number between 1 and 5!",
                     "val-terms": "You must agree to the service terms!"

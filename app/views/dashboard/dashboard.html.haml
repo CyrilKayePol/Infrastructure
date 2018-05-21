@@ -303,7 +303,7 @@
                 %a{:href => "/view_buildings"}
                   %i.fa.fa-table
                   %span.hide-menu View Buildings
-                %a{:href => "#"}
+                %a{:href => "/add_building"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Buildings
                 %a{:href => "/add_historical_data"}
@@ -334,244 +334,24 @@
         .container-fluid
           / Start Page Content
           .row
-            .col-md-3
+            .col-md-6
               .card.bg-primary.p-20
                 .media.widget-ten
                   .media-left.meida.media-middle
                     %span
                       %i.ti-bag.f-s-40
                   .media-body.media-text-right
-                    %h2.color-white 278
+                    %h2.color-white= @building_count
                     %p.m-b-0 TOTAL NUMBER OF BUILDINGS IN UPVTC
-            .col-md-3
-              .card.bg-pink.p-20
-                .media.widget-ten
-                  .media-left.meida.media-middle
-                    %span
-                      %i.ti-comment.f-s-40
-                  .media-body.media-text-right
-                    %h2.color-white 278
-                    %p.m-b-0 AVERAGE PERCENTAGE OF THE CONDITION
-            .col-md-3
+            .col-md-6
               .card.bg-success.p-20
                 .media.widget-ten
                   .media-left.meida.media-middle
                     %span
                       %i.ti-vector.f-s-40
                   .media-body.media-text-right
-                    %h2.color-white $27647
+                    %h2.color-white Wala pang balita
                     %p.m-b-0 NEWS AND UPDATES
-            .col-md-3
-              .card.bg-danger.p-20
-                .media.widget-ten
-                  .media-left.meida.media-middle
-                    %span
-                      %i.ti-location-pin.f-s-40
-                  .media-body.media-text-right
-                    %h2.color-white 278
-                    %p.m-b-0 Total Visitor
-          .row
-            .col-lg-6
-              .card
-                .card-title
-                  %h4 Sales
-                .sales-chart
-                  .ct-bar-chart{:style => "height:350px"}
-              / /# card
-            / /# column
-            .col-lg-6
-              .card
-                .card-title
-                  %h4 Visitor in Device
-                .card-body
-                  .table-responsive
-                    %table.table.table-hover
-                      %thead
-                        %tr
-                          %th Device
-                          %th Visits
-                          %th Avg. time
-                      %tbody
-                        %tr
-                          %td Unknown
-                          %td 2,456
-                          %td 00:02:36
-                        %tr
-                          %td Apple iPad
-                          %td 1,006
-                          %td 00:03:41
-                        %tr
-                          %td Apple iPhone
-                          %td 68
-                          %td 00:04:10
-                        %tr
-                          %td HTC Desire
-                          %td 38
-                          %td 00:01:40
-                        %tr
-                          %td Samsung
-                          %td 20
-                          %td 00:04:54
-                        %tr
-                          %td Apple iPad
-                          %td 1,006
-                          %td 00:03:41
-          .row
-            .col-lg-6
-              .card.nestable-cart
-                .card-title
-                  %h4 World Map
-                .datamap
-                  #world-datamap
-            .col-lg-6
-              .card
-                .card-block
-                  %h4.card-title Visitor
-                  .ct-svg-chart{:style => "height:420px"}
-            / /# column
-          / /# row
-          .row
-            .col-lg-4
-              .card
-                .card-title
-                  %h4 Project
-                .card-body
-                  .current-progress
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Website
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-40{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", :role => "progressbar"}
-                                40%
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Android
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-60{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar"}
-                                60%
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Ios
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-70{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "70", :role => "progressbar"}
-                                70%
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Mobile
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-90{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar"}
-                                90%
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Android
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-60{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar"}
-                                60%
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Ios
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-70{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "70", :role => "progressbar"}
-                                70%
-                    .progress-content
-                      .row
-                        .col-lg-4
-                          .progress-text Mobile
-                        .col-lg-8
-                          .current-progressbar
-                            .progress
-                              .progress-bar.progress-bar-primary.w-90{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar"}
-                                90%
-            / /# column
-            .col-lg-4
-              .card
-                .card-title
-                  %h4 Messages
-                .card-body
-                  .recent-meaasge
-                    .media
-                      .media-left
-                        %a{:href => "#"}
-                          %img.media-object{:alt => "...", :src => "images/avatar/1.jpg"}/
-                      .media-body
-                        %h4.media-heading john doe
-                        .meaasge-date 15 minutes Ago
-                        %p.f-s-12 We are happy about your service
-                    .media
-                      .media-left
-                        %a{:href => "#"}
-                          %img.media-object{:alt => "...", :src => "images/avatar/2.jpg"}/
-                      .media-body
-                        %h4.media-heading Mr. John
-                        .meaasge-date 40 minutes ago
-                        %p.f-s-12 Quick service and good serve
-                    .media
-                      .media-left
-                        %a{:href => "#"}
-                          %img.media-object{:alt => "...", :src => "images/avatar/3.jpg"}/
-                      .media-body
-                        %h4.media-heading Mr. Michael
-                        .meaasge-date 1 minutes ago
-                        %p.f-s-12 We like your birthday cake
-                    .media.no-border
-                      .media-left
-                        %a{:href => "#"}
-                          %img.media-object{:alt => "...", :src => "images/avatar/2.jpg"}/
-                      .media-body
-                        %h4.media-heading Mr. John
-                        .meaasge-date 40 minutes ago
-                        %p.f-s-12 Quick service and good serve
-            .col-lg-4
-              .card
-                .card-title
-                  %h4 Todo
-                .todo-list
-                  .tdl-holder
-                    .tdl-content
-                      %ul
-                        %li.color-primary
-                          %label
-                            %input{:type => "checkbox"}/
-                            %i.bg-primary
-                            %span Post three to six times on Twitter.
-                            %a.ti-close{:href => "#"}
-                        %li.color-success
-                          %label
-                            %input{:checked => "checked", :type => "checkbox"}/
-                            %i.bg-success
-                            %span Post one to two times on Facebook.
-                            %a.ti-close{:href => "#"}
-                        %li.color-warning
-                          %label
-                            %input{:checked => "checked", :type => "checkbox"}/
-                            %i.bg-warning
-                            %span Follow back those who follow you
-                            %a.ti-close{:href => "#"}
-                        %li.color-danger
-                          %label
-                            %input{:checked => "checked", :type => "checkbox"}/
-                            %i.bg-danger
-                            %span Connect with one new person
-                            %a.ti-close{:href => "#"}
-                    %input.tdl-new.form-control{:placeholder => "Type here", :type => "text"}/
           / End PAge Content
         / End Container fluid
         / footer

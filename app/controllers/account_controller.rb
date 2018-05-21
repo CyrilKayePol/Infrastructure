@@ -9,16 +9,10 @@ class AccountController < ApplicationController
 		@first_name = @current_user.first_name
 		@last_name = @current_user.last_name	
 		@mobile_number = @current_user.mobile_number
-		@birthday = @current_user.birthday
-		@gender = @current_user.gender
-		@religion = @current_user.religion
+		@address = @current_user.address
 		@passwd = @current_user.password
 		@email = session[:current_user_email]
-		if (!@birthday.nil?)
-			@month = @current_user.birthday.strftime("%B")
-			@day = @current_user.birthday.strftime("%d")
-			@year = @current_user.birthday.strftime("%Y")
-		end
+
 	end
 	
 	def account_settings
@@ -28,6 +22,7 @@ class AccountController < ApplicationController
 		@first_name = @current_user.first_name
 		@last_name = @current_user.last_name	
 		@mobile_number = @current_user.mobile_number
+		@address = @current_user.address
 	end
 
 	def create_account
@@ -36,9 +31,7 @@ class AccountController < ApplicationController
 		@email
 		@passwd
 		@mobilenum 
-		@birthday 
-		@religion 
-		@gender 
+		@address  
 	end
 	
 	def redirect_account
@@ -47,12 +40,10 @@ class AccountController < ApplicationController
 		@email = params[:email]
 		@passwd = params[:passwd]
 		@mobilenum = params[:mobilenum]
-		@birthday = params[:birthday]
-		@religion = params[:religion]
-		@gender = params[:gender]
+		@address = params[:address]
 		
 		@user = User.create!(:email => @email, :password => @passwd, :first_name => @firstname, :last_name => @lastname,
-		:mobile_number => @mobilenum, :birthday => @birthday, :religion => @religion, :gender => @gender)	
+		:mobile_number => @mobilenum, :address => @address)	
 		
 		redirect_to controller: "login", action: "log_user"
 	end
@@ -64,6 +55,7 @@ class AccountController < ApplicationController
 		@first_name = @current_user.first_name
 		@last_name = @current_user.last_name
 		@mobile_number = @current_user.mobile_number
+		@address = @current_user.address
 	end
 	
 	def edit_profile_information
@@ -73,14 +65,8 @@ class AccountController < ApplicationController
 		@first_name = @current_user.first_name
 		@last_name = @current_user.last_name
 		@mobile_number = @current_user.mobile_number
-		@birthday = @current_user.birthday
-		@gender = @current_user.gender
-		@religion = @current_user.religion	
-		if (!@birthday.nil?)
-			@month = @current_user.birthday.strftime("%B")
-			@day = @current_user.birthday.strftime("%d")
-			@year = @current_user.birthday.strftime("%Y")
-		end	
+		@address = @current_user.address	
+
 	end
 	
 	def update_account_settings
@@ -92,8 +78,7 @@ class AccountController < ApplicationController
 
 	def update_profile_information
 		@current_user = User.find_by(email: session[:current_user_email])
-		@current_user.update(first_name: params[:first_name], last_name: params[:last_name], mobile_number: params[:mobile_number],
-		birthday: params[:birthday], religion: params[:religion], gender: params[:gender])
+		@current_user.update(first_name: params[:first_name], last_name: params[:last_name], mobile_number: params[:mobile_number], address: params[:address])
 		
 		redirect_to "/profile_information"
 	end

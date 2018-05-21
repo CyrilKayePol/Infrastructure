@@ -118,10 +118,10 @@
                 %a{:href => "/view_buildings"}
                   %i.fa.fa-table
                   %span.hide-menu View Buildings
-                %a{:href => "#"}
+                %a{:href => "/add_building"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Buildings
-				%a{:href => "/add_historical_data"}
+                %a{:href => "/add_historical_data"}
                   %i.fa.fa-wpforms
                   %span.hide-menu Add Historical Data
                 %a{:href => "/historical_data"}
@@ -169,6 +169,7 @@
                           %th NAME OF BUILDING
                           %th DATE BUILT
                           %th CONDITION
+                          %th OPTION
                       %tbody
                         / %tr
                         /   %td CS LABORATORY
@@ -187,6 +188,9 @@
                             %td= building.name
                             %td= building.date_built
                             %td= building.condition
+                            %td
+                              %a{:href => '#'} Delete
+                              %a{:href => '#'} Edit
                     %button{:onclick => "myFunction()"} Try it
                 / Column
               / End PAge Content
