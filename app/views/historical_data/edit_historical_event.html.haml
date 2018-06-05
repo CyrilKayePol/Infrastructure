@@ -1,0 +1,249 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    / Tell the browser to be responsive to screen width
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+  %body
+    %p
+      zoomIn
+      %meta{:content => "", :name => "author"}/
+      / Favicon icon
+      %link{:href => "images/favicon.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %title Ela - Bootstrap Admin Dashboard Template
+    / Bootstrap Core CSS
+    %link{:href => "css/lib/bootstrap/bootstrap.min.css", :rel => "stylesheet"}/
+    / Custom CSS
+    %link{:href => "css/helper.css", :rel => "stylesheet"}/
+    %link{:href => "css/style.css", :rel => "stylesheet"}/
+    / HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    / WARNING: Respond.js doesn't work if you view the page via file:**
+    /[if lt IE 9]
+      <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    / Preloader - style you can find in spinners.css
+    .preloader
+      %svg.circular{:viewbox => "25 25 50 50"}
+        %circle.path{:cx => "50", :cy => "50", :fill => "none", :r => "20", "stroke-miterlimit" => "10", "stroke-width" => "2"}
+    / Main wrapper
+    #main-wrapper
+      .header
+        %nav.navbar.top-navbar.navbar-expand-md.navbar-light
+          / Logo
+          .navbar-header
+            %a.navbar-brand{:href => "index.html"}
+              / Logo icon
+              %b
+                %img.dark-logo{:alt => "homepage", :src => "images/logo.png"}/
+              / End Logo icon
+              / Logo text
+              %span
+                %img.dark-logo{:alt => "homepage", :src => "images/logo-text.png"}/
+          / End Logo
+          .navbar-collapse
+            / toggle and nav items
+            %ul.navbar-nav.mr-auto.mt-md-0
+              / This is
+              %li.nav-item
+                %a.nav-link.nav-toggler.hidden-md-up.text-muted{:href => "javascript:void(0)"}
+                  %i.mdi.mdi-menu
+              %li.nav-item.m-l-10
+                %a.nav-link.sidebartoggler.hidden-sm-down.text-muted{:href => "javascript:void(0)"}
+                  %i.ti-menu
+            / User profile and search
+            %ul.navbar-nav.my-lg-0
+              / Comment
+              %li.nav-item.dropdown
+                %a.nav-link.dropdown-toggle.text-muted.text-muted{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+                  %i.fa.fa-bell
+                  .notify
+                    %span.heartbit
+                    %span.point
+                .dropdown-menu.dropdown-menu-right.mailbox.animated.zoomIn
+                  %ul
+                    %li
+                      .drop-title Notifications
+                    %li
+                      %a.nav-link.text-center{:href => "javascript:void(0);"}
+                        %strong Check all notifications
+                        %i.fa.fa-angle-right
+              / End Comment
+              / Profile
+              %li.nav-item.dropdown
+                %a.nav-link.dropdown-toggle.text-muted{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#"}
+                  %img.profile-pic{:alt => "user", :src => "images/users/5.jpg"}/
+                .dropdown-menu.dropdown-menu-right.animated.zoomIn
+                  %ul.dropdown-user
+                    %li
+                      %a{"data-target" => "#changePassModal", "data-toggle" => "modal", :href => "javascript:;"}
+                        %i.ti-user
+                        Change Password
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-wallet
+                        Balance
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-email
+                        Inbox
+                    %li.divider{:role => "separator"}
+                    %li
+                      %a{:href => "#"}
+                        %i.ti-settings
+                        Setting
+                    %li.divider{:role => "separator"}
+                    %li
+                      %a{:href => "/logout"}
+                        %i.fa.fa-power-off
+                        Logout
+      / End header header
+      / Left Sidebar
+      .left-sidebar
+        / Sidebar scroll
+        .scroll-sidebar
+          / Sidebar navigation
+          %nav.sidebar-nav
+            %ul#sidebarnav
+              %li.nav-devider
+              %li.nav-label Home
+              %li
+                %a{:href => "/dashboard"}
+                  %i.fa.fa-tachometer
+                  %span.hide-menu
+                    Dashboard
+              %li
+                %a{:href => "/view_buildings"}
+                  %i.fa.fa-table
+                  %span.hide-menu View Buildings
+              %li
+                %a{"aria-expanded" => "false", :href => "/profile_information"}
+                  %i.fa.fa-user
+                  %span.hide-menu Profile
+      .page-wrapper
+        / Bread crumb
+        .row.page-titles
+          .col-md-5.align-self-center
+            %h3.text-primary Edit Historical Event
+          .col-md-7.align-self-center
+            %ol.breadcrumb
+              %li.breadcrumb-item
+                %a{:href => "javascript:void(0)"} Home
+              %li.breadcrumb-item.active Building Options
+        / End Bread crumb
+        / Container fluid
+        .container-fluid
+          / Start Page Content
+          .row
+            / Column
+            .col-lg-12
+              .card
+                .basic-form
+                  = form_for @building_edit, :url=> {action: 'update_historical_event'}, :html => {:multipart => true} do |f|
+                    .form-group
+                      = f.label :name
+                      = f.text_field :name, :class => "form-control", :readonly => "readonly"
+                    .form-group
+                      = f.label :date
+                      = f.date_field :date, :class => "form-control"
+                    .form-group
+                      = f.label :event
+                      = f.text_field :event, :class => "form-control"
+                    .form-group
+                      = f.label :image
+                      = f.file_field :image, :class => "form-control"
+                    %button.btn.btn-default{:type => "submit"} Submit
+                / Column
+              / End PAge Content
+            / End Container fluid
+            / footer
+          / End Page wrapper
+        #changePassModal.modal{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-dialog{:role => "document"}
+            .modal-content
+              %form{:action => "javascript:;", :novalidate => "novalidate"}
+                .modal-header
+                  %h5.modal-title Change Password
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                .modal-body
+                  %div
+                    .form-group
+                      %label{:for => "oldPass"}
+                        old Password
+                      %input#oldPass.form-control{"data-val" => "true", "data-val-required" => "this is Required Field", :name => "oldPass", :type => "password"}/
+                      %span.field-validation-valid.text-danger{"data-valmsg-for" => "oldPass", "data-valmsg-replace" => "true"}
+                    .form-group
+                      %label{:for => "newPass"}
+                        New Password
+                      %input#newPass.form-control{"data-val" => "true", "data-val-required" => "this is Required Field", :name => "newPass", :type => "password"}/
+                      %span.field-validation-valid.text-danger{"data-valmsg-for" => "newPass", "data-valmsg-replace" => "true"}
+                    .form-group
+                      %label{:for => "confirmPass"}
+                        Confirm Password
+                      %input#confirmPass.form-control{"data-val" => "true", "data-val-equalto" => "Password not Match ", "data-val-equalto-other" => "newPass", "data-val-required" => "this is Required Field", :name => "confirmPass", :type => "password"}/
+                      %span.field-validation-valid.text-danger{"data-valmsg-for" => "confirmPass", "data-valmsg-replace" => "true"}
+                .modal-footer
+                  %button.btn.btn-primary{:type => "submit"} Save changes
+                  %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+        / End Wrapper
+        / All Jquery
+        %script{:src => "js/lib/jquery/jquery.min.js"}
+        / Bootstrap tether Core JavaScript
+        %script{:src => "js/lib/bootstrap/js/popper.min.js"}
+        %script{:src => "js/lib/bootstrap/js/bootstrap.min.js"}
+        %script{:src => "js/lib/form-validation/jquery.validate.min.js"}
+        %script{:src => "js/lib/form-validation/jquery.validate.unobtrusive.min.js"}
+        %script{:src => "js/lib/jquery.nicescroll/jquery.nicescroll.min.js"}
+        / slimscrollbar scrollbar JavaScript
+        %script{:src => "js/jquery.slimscroll.js"}
+        / Menu sidebar
+        %script{:src => "js/sidebarmenu.js"}
+        / stickey kit
+        %script{:src => "js/lib/sticky-kit-master/dist/sticky-kit.min.js"}
+        / Custom JavaScript
+        %script{:src => "js/custom.min.js"}
+        :javascript
+          $(function(){
+                    $("html").niceScroll({
+                        cursorcolor:"#16385d",
+                        cursorwidth:"5px",
+                        background:"#fff",
+                        cursorborder:"1px solid #5c4ac7",
+                        cursorborderradius:0
+                        });  // a world f
+                  });
+          		
+          		function myFunction() {
+          			var table = document.getElementById("myTable");
+          			var row = table.insertRow(1);
+          			var cell1 = row.insertCell(0);
+          			var cell2 = row.insertCell(1);
+          			var cell3 = row.insertCell(2);
+          			cell1.innerHTML = "#{@buildingname}";
+          			cell2.innerHTML = "NEW CELL2";
+          			cell3.innerHTML = "NEW CELL3";
+          		}
+        %script{:src => "js/lib/jquery/jquery.min.js"}
+        / Bootstrap tether Core JavaScript
+        %script{:src => "js/lib/bootstrap/js/popper.min.js"}
+        %script{:src => "js/lib/bootstrap/js/bootstrap.min.js"}
+        / slimscrollbar scrollbar JavaScript
+        %script{:src => "js/jquery.slimscroll.js"}
+        / Menu sidebar
+        %script{:src => "js/sidebarmenu.js"}
+        / stickey kit
+        %script{:src => "js/lib/sticky-kit-master/dist/sticky-kit.min.js"}
+        / Custom JavaScript
+        %script{:src => "js/custom.min.js"}
+        %script{:src => "js/lib/datatables/datatables.min.js"}
+        %script{:src => "js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"}
+        %script{:src => "js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.flash.min.js"}
+        %script{:src => "js/lib/datatables/cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"}
+        %script{:src => "js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"}
+        %script{:src => "js/lib/datatables/cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"}
+        %script{:src => "js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"}
+        %script{:src => "js/lib/datatables/cdn.datatables.net/buttons/1.2.2/js/buttons.print.min.js"}
+        %script{:src => "js/lib/datatables/datatables-init.js"}

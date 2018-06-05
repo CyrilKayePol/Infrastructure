@@ -74,3 +74,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'rails_12factor'
+gem 'imagemagick-identify', '~> 0.0.1'
+gem 'paperclip', '~> 4.2' 

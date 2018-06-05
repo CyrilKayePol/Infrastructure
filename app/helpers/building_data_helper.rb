@@ -1,0 +1,2 @@
+module BuildingDataHelper
+end

@@ -3,7 +3,7 @@ class HistoricalDataController < ApplicationController
 	
 	def add_historical_data
 		if params[:data] != nil
-			@data = HistoricalDatum.create!(user_params)
+			@data = HistoricalDatum.create!(historical_datum_params)
 			redirect_to '/add_historical_data'
 		else
 			@data = HistoricalDatum.all
@@ -20,9 +20,47 @@ class HistoricalDataController < ApplicationController
 		else
 			@historical_data = HistoricalDatum.all
 		end
-  end
+    end
+	
+	def show_historical_data
+		@pangalan_gusali = params[:id]
+		@building_history = HistoricalDatum.where(name: params[:id])
+	
+	end
+	
+	def add_historical_event
+		@pangalan_gusali = params[:id]
+		@building_events = HistoricalDatum.new
+	
+	end
+	
+	def create_event
+		@building_events = HistoricalDatum.create!(historical_datum_params)
+		redirect_to show_historical_data_path(id: @building_events.name)
+	end
+	
+	def delete_historical_event
+		@delete_event = HistoricalDatum.find_by(id: params[:id])
+		HistoricalDatum.delete(params[:id])
+		
+		redirect_to show_historical_data_path(id: @delete_event.name)
+	end
+	
+	def edit_historical_event
+		@edit_event_id = params[:id]
+		session[:current_event_id] = params[:id]
+		@b_edit = HistoricalDatum.where(id: @edit_event_id) 
+		@building_edit = HistoricalDatum.find_by(id: @edit_event_id) 
+	end
+	
+	def update_historical_event
+		bye_event = HistoricalDatum.where(:id => session[:current_event_id])
+		HistoricalDatum.delete(bye_event.ids)
+		@new_e = HistoricalDatum.create!(historical_datum_params)
+		redirect_to show_historical_data_path(id: @new_e.name)
+	end
   
-  def user_params
-    params.require(:data).permit(:name, :date, :event)
-  end
+	def historical_datum_params
+		params.require(:historical_datum).permit(:name, :date, :event, :image)
+	end
 end

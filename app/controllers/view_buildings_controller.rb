@@ -1,5 +1,6 @@
 class ViewBuildingsController < ApplicationController
-	before_filter :confirm_logged_in, :only => [:view_buildings]
+	before_filter :confirm_logged_in, :only => [:view_buildings, :show_building_detail]
+	
 	
 	def view_buildings
 		if params[:sorter].present?
@@ -14,10 +15,5 @@ class ViewBuildingsController < ApplicationController
 			@buildings = Building.all
 		end
 	end
-
-    def show_building_detail
-    	b = params[:id]
-    	@bd = b
-    	@building_datum = BuildingDatum.where(name: b)
-    end
+	
 end

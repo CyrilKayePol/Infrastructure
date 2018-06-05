@@ -10,12 +10,38 @@ class BuildingOptionsController < ApplicationController
 		# @info = params[:info]
 		# @buildings = Building.create!(@buildingname, @datebuilt, @info)
 		# redirect_to '/add_building'
+	@pangalan = 'Name of building'
 	if params[:building] != nil
-		@buildings = Building.create!(user_params)
-		redirect_to '/add_building'
+		@buildings = Building.new(user_params)
+		if !(@buildings.save)
+			@pangalan = 'Name has already been taken. Please enter a unique name!'
+			flash[:warning] = 'Name has already been taken. Please enter a unique name!'
+		end
+		redirect_to '/view_buildings'
 	else
 		@buildings = Building.all
 	end
+  end
+  
+  def delete_building
+	bye_building = params[:id]
+	building_del = Building.where(name: bye_building)
+	building_datum_del = BuildingDatum.where(name: bye_building)
+	historical_datum_del = HistoricalDatum.where(name: bye_building)
+	Building.delete(building_del.ids)
+	BuildingDatum.delete(building_datum_del.ids)
+	HistoricalDatum.delete(historical_datum_del.ids)
+	redirect_to '/view_buildings'
+  end
+  
+  def edit_building
+	@gusali_edit = Building.where(name: params[:id])
+  end
+  
+  def update_building
+	bld = Building.find_by(name: params[:building_name])
+	bld.update(:condition => params[:building_condition], :date_built => params[:building_date_built])
+	redirect_to '/add_building'
   end
  
   def user_params

@@ -118,15 +118,6 @@
                 %a{:href => "/view_buildings"}
                   %i.fa.fa-table
                   %span.hide-menu View Buildings
-                %a{:href => "/add_building"}
-                  %i.fa.fa-wpforms
-                  %span.hide-menu Add Buildings
-                %a{:href => "/add_historical_data"}
-                  %i.fa.fa-wpforms
-                  %span.hide-menu Add Historical Data
-                %a{:href => "/historical_data"}
-                  %i.fa.fa-book
-                  %span.hide-menu View Historical Data
               %li
                 %a{"aria-expanded" => "false", :href => "/profile_information"}
                   %i.fa.fa-user
@@ -150,10 +141,10 @@
             .col-lg-12
               .card
                 .basic-form
-                  %form
+                  %form{:action => "add_building", :method => "get", :name => "addbuilding"}
                     .form-group
                       %label BUILDING NAME
-                      %input.form-control{:value => "", :name => "building[name]", :placeholder => "Name of Building", :type => "text"}/
+                      %input.form-control{:value => "", :name => "building[name]", :placeholder => "#{@pangalan}", :type => "text"}/
                     .form-group
                       %label DATE BUILT
                       %input.form-control{:value => "",:name => "building[date_built]", :placeholder => "Date Built", :type => "date"}/
@@ -162,36 +153,6 @@
                       %input.form-control{:value => "",:name => "building[condition]", :placeholder => "INFORMATION", :rows => "10", :type => "text"}
                     / %button.btn.btn-default{:onclick => "myFunction()", :type => "submit"} Submit
                     %button.btn.btn-default{:type => "submit"} Submit
-                  .table-responsive.m-t-40
-                    %table#myTable.display.nowrap.table.table-hover.table-striped.table-bordered{:cellspacing => "0", :width => "100%"}
-                      %thead
-                        %tr
-                          %th NAME OF BUILDING
-                          %th DATE BUILT
-                          %th CONDITION
-                          %th OPTION
-                      %tbody
-                        / %tr
-                        /   %td CS LABORATORY
-                        /   %td April 28, 2018
-                        /   %td NOT OK
-                        / %tr
-                        /   %td CS LECTURE ROOM
-                        /   %td Febuary 31, 2018
-                        /   %td VERY OK
-                        / %tr
-                        /   %td UP BOTANICAL
-                        /   %td March 21, 2018
-                        /   %td NEEDS CLEANING
-                        - @buildings.each do |building|
-                          %tr
-                            %td= building.name
-                            %td= building.date_built
-                            %td= building.condition
-                            %td
-                              %a{:href => '#'} Delete
-                              %a{:href => '#'} Edit
-                    %button{:onclick => "myFunction()"} Try it
                 / Column
               / End PAge Content
             / End Container fluid
