@@ -9,7 +9,7 @@ class BuildingDataController < ApplicationController
 		
 		bld = Building.where(name: session[:current_building])
 		@building_details  = BuildingDatum.create!(building_datum_params)
-		
+		@news = News.create!(:news => "Check new status of [#{@building_details.name}]")
 		redirect_to show_building_detail_path(:id => @building_details.name)
 		
 	end

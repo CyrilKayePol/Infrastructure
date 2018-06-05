@@ -141,20 +141,21 @@
             .col-lg-12
               .card
                 .basic-form
-                  = form_for @building_edit, :url=> {action: 'update_historical_event'}, :html => {:multipart => true} do |f|
-                    .form-group
-                      = f.label :name
-                      = f.text_field :name, :class => "form-control", :readonly => "readonly"
-                    .form-group
-                      = f.label :date
-                      = f.date_field :date, :class => "form-control"
-                    .form-group
-                      = f.label :event
-                      = f.text_field :event, :class => "form-control"
-                    .form-group
-                      = f.label :image
-                      = f.file_field :image, :class => "form-control"
-                    %button.btn.btn-default{:type => "submit"} Submit
+                  - @b_edit.each do |b|
+                    = form_for @building_edit, :url=> {action: 'update_historical_event'}, :html => {:multipart => true} do |f|
+                      .form-group
+                        = f.label :name
+                        = f.text_field :name, :class => "form-control", :readonly => "readonly", :value => "#{b.name}"
+                      .form-group
+                        = f.label :date
+                        = f.date_field :date, :class => "form-control", :value => "#{b.date}"
+                      .form-group
+                        = f.label :event
+                        = f.text_field :event, :class => "form-control", :value => "#{b.event}"
+                      .form-group
+                        = f.label :image
+                        = f.file_field :image, :class => "form-control", :value => b.image
+                      %button.btn.btn-default{:type => "submit"} Submit
                 / Column
               / End PAge Content
             / End Container fluid

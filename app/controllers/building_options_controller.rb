@@ -16,7 +16,10 @@ class BuildingOptionsController < ApplicationController
 		if !(@buildings.save)
 			@pangalan = 'Name has already been taken. Please enter a unique name!'
 			flash[:warning] = 'Name has already been taken. Please enter a unique name!'
+		else
+			@news = News.create!(:news => "New building [#{@buildings.name}] was added.")
 		end
+		
 		redirect_to '/view_buildings'
 	else
 		@buildings = Building.all

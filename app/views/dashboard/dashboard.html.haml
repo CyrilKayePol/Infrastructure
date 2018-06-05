@@ -325,7 +325,7 @@
         .container-fluid
           / Start Page Content
           .row
-            .col-md-6
+            .col-md-12
               .card.bg-primary.p-20
                 .media.widget-ten
                   .media-left.meida.media-middle
@@ -334,14 +334,16 @@
                   .media-body.media-text-right
                     %h2.color-white= @building_count
                     %p.m-b-0 TOTAL NUMBER OF BUILDINGS IN UPVTC
-            .col-md-6
+            .col-md-12
               .card.bg-success.p-20
                 .media.widget-ten
                   .media-left.meida.media-middle
                     %span
                       %i.ti-vector.f-s-40
                   .media-body.media-text-right
-                    %h2.color-white Wala pang balita
+                    - @news.each do |n|
+                      %h2.color-white "#{n.news}"
+                      %h5.color-white "#{n.created_at}"
                     %p.m-b-0 NEWS AND UPDATES
           / End PAge Content
         / End Container fluid

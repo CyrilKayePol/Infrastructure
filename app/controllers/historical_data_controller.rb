@@ -36,6 +36,7 @@ class HistoricalDataController < ApplicationController
 	
 	def create_event
 		@building_events = HistoricalDatum.create!(historical_datum_params)
+		@news = News.create!(:news => "[#{@building_events.name}] new event: #{@building_events.event}")
 		redirect_to show_historical_data_path(id: @building_events.name)
 	end
 	

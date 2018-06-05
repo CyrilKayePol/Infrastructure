@@ -3,5 +3,6 @@ class DashboardController < ApplicationController
 
 	def dashboard
 		@building_count = Building.count
+		@news = News.order('created_at DESC').last(5)
 	end
 end
