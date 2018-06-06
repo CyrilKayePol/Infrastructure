@@ -69,4 +69,18 @@ Rails.application.routes.draw do
 	put '/edit_building_component' => 'building_components#edit_building_component'
 	get '/update_building_component' => 'building_components#update_building_component'
 	put '/update_building_component' => 'building_components#update_building_component'
+	get '/confirm_delete_building' => 'building_options#confirm_delete_building'
+	post '/confirm_delete_building' => 'building_options#confirm_delete_building'
+	get '/check_delete_building' => 'building_options#check_delete_building'
+	post '/check_delete_building' => 'building_options#check_delete_building'
+	
+	get '/confirm_delete_building_component' => 'building_components#confirm_delete_building_component'
+	post '/confirm_delete_building_component' => 'building_components#confirm_delete_building_component'
+	get '/check_delete_building_component' => 'building_components#check_delete_building_component'
+	post '/check_delete_building_component' => 'building_components#check_delete_building_component'
+	
+	get '/confirm_delete_event' => 'historical_data#confirm_delete_event'
+	post '/confirm_delete_event' => 'historical_data#confirm_delete_event'
+	get '/check_delete_event' => 'historical_data#check_delete_event'
+	post '/check_delete_event' => 'historical_data#check_delete_event'
 end

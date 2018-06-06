@@ -27,20 +27,33 @@ class BuildingOptionsController < ApplicationController
   end
   
   def delete_building
-	bye_building = params[:id]
-	building_del = Building.where(name: bye_building)
-	building_datum_del = BuildingDatum.where(name: bye_building)
-	historical_datum_del = HistoricalDatum.where(name: bye_building)
-	Building.delete(building_del.ids)
-	BuildingDatum.delete(building_datum_del.ids)
-	HistoricalDatum.delete(historical_datum_del.ids)
+	redirect_to confirm_delete_building_path(id: params[:id])
 	
-	if Building.count == 0
-		News.delete_all
-	end
-	redirect_to '/view_buildings'
   end
   
+  def confirm_delete_building
+	@name_building = params[:id]
+	session[:name_building] = @name_building
+  end
+  
+  def check_delete_building
+	if session[:name_building].eql? params[:building_name]
+		bye_building = session[:name_building]
+		building_del = Building.where(name: bye_building)
+		building_datum_del = BuildingDatum.where(name: bye_building)
+		historical_datum_del = HistoricalDatum.where(name: bye_building)
+		Building.delete(building_del.ids)
+		BuildingDatum.delete(building_datum_del.ids)
+		HistoricalDatum.delete(historical_datum_del.ids)
+		
+		if Building.count == 0
+			News.delete_all
+		end
+		redirect_to '/view_buildings'
+	else
+		redirect_to confirm_delete_building_path(id: session[:name_building])
+	end
+  end
   def edit_building
 	@gusali_edit = Building.where(name: params[:id])
   end

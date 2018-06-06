@@ -17,12 +17,26 @@ class BuildingComponentsController < ApplicationController
 	end
 	
 	def delete_building_component
-		@bc = params[:id]
-		@com = BuildingComponent.find(@bc)
-		@com.delete
-		redirect_to show_building_components_path(id: @com.building_name) 
-		
+		redirect_to confirm_delete_building_component_path(id: params[:id]) 
 	end
+	
+	  def confirm_delete_building_component
+		@component_id = params[:id]
+		@name_build = BuildingComponent.find(@component_id)
+		@name_building = @name_build.name
+		session[:com] = @name_building
+		session[:component_id] = @component_id
+	  end
+	  
+	  def check_delete_building_component
+		if session[:com].eql? params[:building_name]
+			@compo = BuildingComponent.find(session[:component_id])
+			@compo.delete
+			redirect_to show_building_components_path(id: @compo.building_name)
+		else
+			redirect_to confirm_delete_building_component_path(id: session[:component_id])
+		end
+	  end
 	
 	def edit_building_component
 		@bc = params[:id]
