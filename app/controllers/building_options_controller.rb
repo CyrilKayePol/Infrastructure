@@ -34,6 +34,10 @@ class BuildingOptionsController < ApplicationController
 	Building.delete(building_del.ids)
 	BuildingDatum.delete(building_datum_del.ids)
 	HistoricalDatum.delete(historical_datum_del.ids)
+	
+	if Building.count == 0
+		News.delete_all
+	end
 	redirect_to '/view_buildings'
   end
   
