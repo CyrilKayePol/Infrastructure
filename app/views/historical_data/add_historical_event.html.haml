@@ -143,9 +143,6 @@
                 .basic-form
                   = form_for @building_events, :url=> {action: 'create_event'}, :html => {:multipart => true} do |f|
                     .form-group
-                      = f.label :name
-                      = f.text_field :name, :class => "form-control", :value => "#{@pangalan_gusali}", :readonly => "readonly"
-                    .form-group
                       = f.label :date
                       = f.date_field :date, :class => "form-control"
                     .form-group

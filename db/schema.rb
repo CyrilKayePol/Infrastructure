@@ -11,12 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605162425) do
+ActiveRecord::Schema.define(version: 20180606104748) do
 
   create_table "accounts", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "building_components", force: :cascade do |t|
+    t.text     "name"
+    t.text     "status"
+    t.text     "category"
+    t.text     "building_name"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "building_id"
+  end
+
+  add_index "building_components", ["building_id"], name: "index_building_components_on_building_id"
 
   create_table "building_data", force: :cascade do |t|
     t.text     "name"
@@ -62,17 +74,29 @@ ActiveRecord::Schema.define(version: 20180605162425) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "components", force: :cascade do |t|
+    t.text     "name"
+    t.text     "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text     "category"
+  end
+
   create_table "historical_data", force: :cascade do |t|
     t.text     "name"
     t.date     "date"
     t.text     "event"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.integer  "building_component_id"
+    t.text     "component_name"
   end
+
+  add_index "historical_data", ["building_component_id"], name: "index_historical_data_on_building_component_id"
 
   create_table "news", force: :cascade do |t|
     t.text     "news"

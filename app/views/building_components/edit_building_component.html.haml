@@ -126,7 +126,7 @@
         / Bread crumb
         .row.page-titles
           .col-md-5.align-self-center
-            %h3.text-primary Edit Historical Event
+            %h3.text-primary Edit Building Component
           .col-md-7.align-self-center
             %ol.breadcrumb
               %li.breadcrumb-item
@@ -141,23 +141,17 @@
             .col-lg-12
               .card
                 .basic-form
-                  - @b_edit.each do |b|
-                    = form_for @building_edit, :url=> {action: 'update_historical_event'}, :html => {:multipart => true} do |f|
+                  - @com.each do |c|
+                    %form{:action => "update_building_component", :method => "get", :name => "addbuilding"}
                       .form-group
-                        = f.label :name
-                        = f.text_field :name, :class => "form-control", :value => "#{b.name}", :readonly => "readonly"
+                        %label NAME
+                        %input.form-control{:value => "#{c.name}", :name => "com_name", :placeholder => "component name", :readonly => "readonly",:type => "text"}/
                       .form-group
-                        = f.label :component_name
-                        = f.text_field :component_name, :class => "form-control", :value => "#{b.component_name}", :readonly => "readonly"
+                        %label STATUS
+                        %input.form-control{:value => "#{c.status}",:name => "com_status", :placeholder => "status", :type => "text"}/
                       .form-group
-                        = f.label :date
-                        = f.date_field :date, :class => "form-control", :value => "#{b.date}"
-                      .form-group
-                        = f.label :event
-                        = f.text_field :event, :class => "form-control", :value => "#{b.event}"
-                      .form-group
-                        = f.label :image
-                        = f.file_field :image, :class => "form-control", :value => b.image
+                        %label CATEGORY
+                        %input.form-control{:value => "#{c.category}",:name => "com_cat", :placeholder => "category", :type => "text"}/
                       %button.btn.btn-default{:type => "submit"} Submit
                 / Column
               / End PAge Content

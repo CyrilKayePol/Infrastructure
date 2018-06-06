@@ -126,7 +126,7 @@
         / Bread crumb
         .row.page-titles
           .col-md-5.align-self-center
-            %h3.text-primary Edit Historical Event
+            %h3.text-primary New Component
           .col-md-7.align-self-center
             %ol.breadcrumb
               %li.breadcrumb-item
@@ -141,24 +141,14 @@
             .col-lg-12
               .card
                 .basic-form
-                  - @b_edit.each do |b|
-                    = form_for @building_edit, :url=> {action: 'update_historical_event'}, :html => {:multipart => true} do |f|
-                      .form-group
-                        = f.label :name
-                        = f.text_field :name, :class => "form-control", :value => "#{b.name}", :readonly => "readonly"
-                      .form-group
-                        = f.label :component_name
-                        = f.text_field :component_name, :class => "form-control", :value => "#{b.component_name}", :readonly => "readonly"
-                      .form-group
-                        = f.label :date
-                        = f.date_field :date, :class => "form-control", :value => "#{b.date}"
-                      .form-group
-                        = f.label :event
-                        = f.text_field :event, :class => "form-control", :value => "#{b.event}"
-                      .form-group
-                        = f.label :image
-                        = f.file_field :image, :class => "form-control", :value => b.image
-                      %button.btn.btn-default{:type => "submit"} Submit
+                  %form{:action => "create_new_component", :method => "get", :name => "addbuilding"}
+                    .form-group
+                      %label NAME
+                      %input.form-control{:value => "", :name => "com_name", :placeholder => "component name", :type => "text"}/
+                    .form-group
+                      %label CATEGORY
+                      %input.form-control{:value => "",:name => "com_cat", :placeholder => "category", :type => "text"}/
+                    %button.btn.btn-default{:type => "submit"} Submit
                 / Column
               / End PAge Content
             / End Container fluid

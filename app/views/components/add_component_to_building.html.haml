@@ -7,13 +7,13 @@
     / Tell the browser to be responsive to screen width
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}/
     %meta{:content => "", :name => "description"}/
-  %body.fix-header.fix-sidebar
-    %p
-      zoomIn
-      %meta{:content => "", :name => "author"}/
-      / Favicon icon
-      %link{:href => "images/favicon.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
+    %meta{:content => "", :name => "author"}/
+    / Favicon icon
+    %link{:href => "images/favicon.png", :rel => "icon", :sizes => "16x16", :type => "image/png"}/
     %title Ela - Bootstrap Admin Dashboard Template
+    %link{:href => "css/lib/chartist/chartist.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/lib/owl.carousel.min.css", :rel => "stylesheet"}/
+    %link{:href => "css/lib/owl.theme.default.min.css", :rel => "stylesheet"}/
     / Bootstrap Core CSS
     %link{:href => "css/lib/bootstrap/bootstrap.min.css", :rel => "stylesheet"}/
     / Custom CSS
@@ -24,6 +24,7 @@
     /[if lt IE 9]
       <script src="https:**oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https:**oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  %body.fix-header.fix-sidebar
     / Preloader - style you can find in spinners.css
     .preloader
       %svg.circular{:viewbox => "25 25 50 50"}
@@ -122,16 +123,17 @@
                 %a{"aria-expanded" => "false", :href => "/profile_information"}
                   %i.fa.fa-user
                   %span.hide-menu Profile
+
       .page-wrapper
         / Bread crumb
         .row.page-titles
           .col-md-5.align-self-center
-            %h3.text-primary View Historical Data
+            %h3.text-primary List of Components
           .col-md-7.align-self-center
             %ol.breadcrumb
               %li.breadcrumb-item
                 %a{:href => "javascript:void(0)"} Home
-              %li.breadcrumb-item.active View Historical Data
+              %li.breadcrumb-item.active View Buildings
         / End Bread crumb
         / Container fluid
         .container-fluid
@@ -146,23 +148,18 @@
                   %table#example23.display.nowrap.table.table-hover.table-striped.table-bordered{:cellspacing => "0", :width => "100%"}
                     %thead
                       %tr
-                        %th EVENT DATE
-                        %th EVENT
-                        %th IMAGE
+                        %th COMPONENT
+                        %th CATEGORY
                         %th OPTIONS
                     %tbody
-                      - @building_history.each do |building|
+                      - @components.each do |building|
                         %tr
-                          %td= building.date
-                          %td= building.event
+                          %td= building.name
+                          %td= building.category
                           %td
-                            = link_to image_tag(building.image.url(:med)), building.image.url
-                          %td
-                            %span= link_to "Delete |", delete_historical_event_path(id: building)
-                            %span= link_to "Edit", edit_historical_event_path(id: building)
-                %span= link_to "Add Event", add_historical_event_path(component: @building_history)
-                %span= link_to "Back", '/view_buildings'
-						  
+                            %span= link_to "Add to Building", add_to_building_path(id: building, name: @building_name)
+                %span= link_to "Add new component", add_new_component_path(id: @building_name)
+                %span= link_to "Back", show_building_components_path(id: @building_name)
               / Column
             / End PAge Content
           / End Container fluid

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  status: MyText
+  category: MyText
+  building_name: MyText
+
+two:
+  name: MyText
+  status: MyText
+  category: MyText
+  building_name: MyText
