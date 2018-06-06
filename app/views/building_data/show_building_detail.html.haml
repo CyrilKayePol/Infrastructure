@@ -142,115 +142,124 @@
           .row
             .col-lg-12
               .card
-                %h4.card-title.text-center INFORMATION
-                %br/
-                %ul
-                - gusali_name = ""
-                - if !(@building_datum.nil?)
-                  - @building_datum.each do |b_dat|
-                    %li
-                      - gusali_name = b_dat.name
-                      = link_to image_tag(b_dat.image.url(:med)), b_dat.image.url
-                      %br/
-                      %span{:style => "padding-left: 25px;"} Carpentry/Structure
-                      %ul
-                        %li
-                          %span{:style => "padding-left: 50px;"} Roofing: 
-                          %span= b_dat.roofing
-                        %li
-                          %span{:style => "padding-left: 50px;"} Ceiling: 
-                          %span= b_dat.ceiling
-                        %li
-                          %span{:style => "padding-left: 50px;"} Floor: 
-                          %span= b_dat.floor
-                        %li
-                          %span{:style => "padding-left: 50px;"} Doors: 
-                          %span= b_dat.door
+                %div{:style => "display: flex;"}
+                  %div{:style => "width: 50%; display: table;"}
+                    %span{:style => "padding-left: 50%; font-size: 22px; font-weight: bold;"} Status
+                    %br/
+                    %ul
+                    - gusali_name = ""
+                    - if !(@building_datum.nil?)
+                      - @building_datum.each do |b_dat|
+                        %li{:style => "border-left: 5px solid red;"}
+                          - gusali_name = b_dat.name
+                          / = link_to image_tag(b_dat.image.url(:med)), b_dat.image.url
+                          / %br/
+                          %span{:style => "padding-left: 25px; font-size: 18px; font-weight: bold;"} Carpentry/Structure
                           %ul
                             %li
-                              %span{:style => "padding-left: 50px;"} Door Knobs: 
-                              %span= b_dat.door_knobs
-                        %li
-                          %span{:style => "padding-left: 50px;"} Painting: 
-                          %span= b_dat.painting
-                        %li
-                          %span{:style => "padding-left: 50px;"} Walling: 
-                          %span= b_dat.walling
-                        %li
-                          %span{:style => "padding-left: 50px;"} Tiles: 
-                          %span= b_dat.tiles
-                    %li
-                      %span{:style => "padding-left: 25px;"} Electrical
-                      %ul
-                        %li
-                          %span{:style => "padding-left: 50px;"} Switches: 
-                          %span= b_dat.switches
-                        %li
-                          %span{:style => "padding-left: 50px;"} Outlets: 
-                          %span= b_dat.outlets
-                        %li
-                          %span{:style => "padding-left: 50px;"} Lights:
-                          %span= b_dat.lights
-                        %li
-                          %span{:style => "padding-left: 50px;"} Wires: 
-                          %span= b_dat.wires
-                    %li
-                      %span{:style => "padding-left: 25px;"} Equipment
-                      %ul
-                        %li
-                          %span{:style => "padding-left: 50px;"} Chairs:
-                          %span= b_dat.chairs
-                        %li
-                          %span{:style => "padding-left: 50px;"} Tables: 
-                          %span= b_dat.tables
-                        %li
-                          %span{:style => "padding-left: 50px;"} Projectors: 
-                          %span= b_dat.projectors
-                        %li
-                          %span{:style => "padding-left: 50px;"} Ventilation
+                              %span{:style => "padding-left: 50px;"} Roofing: 
+                              %span= b_dat.roofing
+                            %li
+                              %span{:style => "padding-left: 50px;"} Ceiling: 
+                              %span= b_dat.ceiling
+                            %li
+                              %span{:style => "padding-left: 50px;"} Floor: 
+                              %span= b_dat.floor
+                            %li
+                              %span{:style => "padding-left: 50px;"} Doors: 
+                              %span= b_dat.door
+                              %ul
+                                %li
+                                  %span{:style => "padding-left: 75px;"} Door Knobs: 
+                                  %span= b_dat.door_knobs
+                            %li
+                              %span{:style => "padding-left: 50px;"} Painting: 
+                              %span= b_dat.painting
+                            %li
+                              %span{:style => "padding-left: 50px;"} Walling: 
+                              %span= b_dat.walling
+                            %li
+                              %span{:style => "padding-left: 50px;"} Tiles: 
+                              %span= b_dat.tiles
+                        %li{:style => "border-left: 5px solid blue;"}
+                          %span{:style => "padding-left: 25px; font-size: 18px; font-weight: bold;"} Electrical
                           %ul
                             %li
-                              %span{:style => "padding-left: 75px;"} Air Conditioners: 
-                              %span= b_dat.aircon
+                              %span{:style => "padding-left: 50px;"} Switches: 
+                              %span= b_dat.switches
                             %li
-                              %span{:style => "padding-left: 75px;"} Electric Fans: 
-                              %span= b_dat.electic_fans
-                        %li
-                          %span{:style => "padding-left: 50px;"} Boards
+                              %span{:style => "padding-left: 50px;"} Outlets: 
+                              %span= b_dat.outlets
+                            %li
+                              %span{:style => "padding-left: 50px;"} Lights:
+                              %span= b_dat.lights
+                            %li
+                              %span{:style => "padding-left: 50px;"} Wires: 
+                              %span= b_dat.wires
+                        %li{:style => "border-left: 5px solid orange;"}
+                          %span{:style => "padding-left: 25px; font-size: 18px; font-weight: bold;"} Equipment
                           %ul
                             %li
-                              %span{:style => "padding-left: 75px;"} Blackboards: 
-                              %span= b_dat.blackboard
+                              %span{:style => "padding-left: 50px;"} Chairs:
+                              %span= b_dat.chairs
                             %li
-                              %span{:style => "padding-left: 75px;"} Whiteboards: 
-                              %span= b_dat.whiteboard
+                              %span{:style => "padding-left: 50px;"} Tables: 
+                              %span= b_dat.tables
                             %li
-                              %span{:style => "padding-left: 75px;"} Glassboards: 
-                              %span= b_dat.glassboard
-                    %li
-                      %span{:style => "padding-left: 25px;"} Plumbing:
-                      %span= b_dat.plumbing
-                    %li
-                      %span{:style => "padding-left: 25px;"} Outside
-                      %ul
-                        %li
-                          %span{:style => "padding-left: 50px;"} Fences:
-                          %span= b_dat.fence
-                        %li
-                          %span{:style => "padding-left: 50px;"} Staircases: 
-                          %span= b_dat.staircase
-                        %li
-                          %span{:style => "padding-left: 50px;"} Covered Walks: 
-                          %span= b_dat.covered_walk
-                        %li
-                          %span{:style => "padding-left: 50px;"} Comfort Rooms: 
-                          %span= b_dat.comfort_room
-                %br/
-                - if @building_datum.empty?
-                  %a.text-right.text-info{:href => '/new_building_detail'} Add
-                - else
-                  %a.text-right.text-info{:href => edit_building_detail_path(id: gusali_name)} Edit
-                %a.text-right.text-info{:href => "/view_buildings"} Back
+                              %span{:style => "padding-left: 50px;"} Projectors: 
+                              %span= b_dat.projectors
+                            %li
+                              %span{:style => "padding-left: 50px;"} Ventilation
+                              %ul
+                                %li
+                                  %span{:style => "padding-left: 75px;"} Air Conditioners: 
+                                  %span= b_dat.aircon
+                                %li
+                                  %span{:style => "padding-left: 75px;"} Electric Fans: 
+                                  %span= b_dat.electic_fans
+                            %li
+                              %span{:style => "padding-left: 50px;"} Boards
+                              %ul
+                                %li
+                                  %span{:style => "padding-left: 75px;"} Blackboards: 
+                                  %span= b_dat.blackboard
+                                %li
+                                  %span{:style => "padding-left: 75px;"} Whiteboards: 
+                                  %span= b_dat.whiteboard
+                                %li
+                                  %span{:style => "padding-left: 75px;"} Glassboards: 
+                                  %span= b_dat.glassboard
+                        %li{:style => "border-left: 5px solid yellow;"}
+                          %span{:style => "padding-left: 25px; font-size: 18px; font-weight: bold;"} Plumbing:
+                          %span= b_dat.plumbing
+                        %li{:style => "border-left: 5px solid green;"}
+                          %span{:style => "padding-left: 25px; font-size: 18px; font-weight: bold;"} Outside
+                          %ul
+                            %li
+                              %span{:style => "padding-left: 50px;"} Fences:
+                              %span= b_dat.fence
+                            %li
+                              %span{:style => "padding-left: 50px;"} Staircases: 
+                              %span= b_dat.staircase
+                            %li
+                              %span{:style => "padding-left: 50px;"} Covered Walks: 
+                              %span= b_dat.covered_walk
+                            %li
+                              %span{:style => "padding-left: 50px;"} Comfort Rooms: 
+                              %span= b_dat.comfort_room
+                    %br/
+                    - if @building_datum.empty?
+                      %a.text-left.text-info{:href => '/new_building_detail'} Add
+                    - else
+                      %a.text-left.text-info{:href => edit_building_detail_path(id: gusali_name), :style => "padding-left: 20px;"} Edit
+                    %a.text-left.text-info{:href => "/view_buildings"} &nbsp; Back
+                  %div{:style => "flex: 50%;"}
+                    %span{:style => "padding-left: 50%; font-size: 22px; font-weight: bold;"} Image
+                    %br/
+                    %br/
+                    - if !(@building_datum.nil?)
+                      - @building_datum.each do |b_dat|
+                        %span= link_to image_tag(b_dat.image.url(:med)), b_dat.image.url
             / End PAge Content
           / End Container fluid
           / footer
