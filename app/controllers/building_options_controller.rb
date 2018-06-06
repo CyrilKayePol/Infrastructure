@@ -20,7 +20,7 @@ class BuildingOptionsController < ApplicationController
 			@news = News.create!(:news => "New building [#{@buildings.name}] was added.")
 		end
 		
-		redirect_to '/view_buildings'
+		redirect_to add_component_to_building_path(id: @buildings.name)
 	else
 		@buildings = Building.all
 	end
