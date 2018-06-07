@@ -163,7 +163,7 @@
                             %span= link_to "View-Photos |", show_photos_path(id: building.name)
                             %span= link_to "Edit |", edit_building_view_path(id: building.name)
                             %span= link_to "Delete", delete_building_path(id: building.name)
-                %span= link_to "Add Building", '/add_building'
+                %span{:style => "font-weight:bold"}= link_to "Add Building", '/add_building'
               / Column
             / End PAge Content
           / End Container fluid

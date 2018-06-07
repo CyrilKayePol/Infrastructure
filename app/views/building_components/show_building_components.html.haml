@@ -162,8 +162,8 @@
                             %span= link_to "View-Events |", show_historical_data_path(id: building)
                             %span= link_to "Edit |", edit_building_component_path(id: building)
                             %span= link_to "Delete", delete_building_component_path(id: building)
-                %span= link_to "Add component to building", add_component_to_building_path(id: @building_name)
-                %span= link_to "Back", '/view_buildings'
+                %span{:style => "font-weight:bold"}= link_to "Add component to building", add_component_to_building_path(id: @building_name)
+                %span{:style => "font-weight:bold"}= link_to "Back", '/view_buildings'
               / Column
             / End PAge Content
           / End Container fluid

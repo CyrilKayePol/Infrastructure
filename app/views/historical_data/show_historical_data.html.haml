@@ -160,8 +160,8 @@
                           %td
                             %span= link_to "Delete |", delete_historical_event_path(id: building)
                             %span= link_to "Edit", edit_historical_event_path(id: building)
-                %span= link_to "Add Event", add_historical_event_path(component: @building_history)
-                %span= link_to "Back", '/view_buildings'
+                %span{:style => "font-weight:bold"}= link_to "Add Event", add_historical_event_path(component: @building_history)
+                %span{:style => "font-weight:bold"}= link_to "Back", '/view_buildings'
 						  
               / Column
             / End PAge Content
